@@ -1,0 +1,40 @@
+{
+  "empleado": [
+    {
+      "username": "admin",
+      "password": "admin",
+      "role": "admin",
+      "id": "1",
+      "nombre": "Britany"
+    },
+    {
+      "id": "617d6b7",
+      "nombre": "Marcelo Juan",
+      "apellido": "Gallardo Perez",
+      "celula": "2312345678",
+      "correo": "marce@gmail.com",
+      "role": "empleado",
+      "username": "Marcelo1b8",
+      "password": "cwrBijILlh",
+      "estadoEmpleado": "activo"
+    },
+    {
+      "nombre": "Garnizo",
+      "apellido": "Gallardo",
+      "celula": "4343434333",
+      "correo": "Garnizo@gmail.com",
+      "estadoEmpleado": "activo",
+      "username": "Juan37b",
+      "password": "w4tL236mtK",
+      "role": "empleado",
+      "id": "0863f69"
+    }
+  ],
+  "usuario": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin"
+    }
+  ]
+}
