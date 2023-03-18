@@ -28,6 +28,7 @@ export const InicioSesion = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [usuarios, setUsuarios] = useState([]);
+  const [administrador, setAdministrador] = useState([]);
 
   const handleChange = (e) => {
     if (e.target.name === "username") {
@@ -38,6 +39,7 @@ export const InicioSesion = () => {
   };
   useEffect(() => {
     getUsuarios();
+    getAdministrador();
   }, []);
 
   const handleSubmit = async (e) => {
@@ -49,18 +51,19 @@ export const InicioSesion = () => {
         estadoCuenta=true;
          localStorage.setItem("NOMBRE", usuario.nombre);
          localStorage.setItem("ROLE", usuario.role);
-        
          registerUsuario(usuario);
-        
-        
-        if (usuario.role === "admin") {
-          navigate("/admin/welcome");
-        } else {
           navigate("/empleado/inicio");
-        }
       }
     });
-    mensajeCuentaInvalida(estadoCuenta);
+    if(administrador[0].username === username && administrador[0].password === password){
+      localStorage.setItem("NOMBRE", administrador[0].nombre);
+         localStorage.setItem("ROLE", administrador[0].role);
+      registerUsuario(administrador);
+      navigate("/admin/welcome");
+    }else{
+      mensajeCuentaInvalida(estadoCuenta);
+    }
+   
 
  
   };
@@ -96,7 +99,26 @@ const mensajeCuentaInvalida = (estadoCuenta) =>{
       });
     }
   };
+  const getAdministrador = async () => {
 
+    try {
+      await axios.get("/administrador").then((response) => {
+        setAdministrador(response.data);
+      });
+    } catch (error) {
+      toast.error("No existe un administrador en la BD", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
+  };
+ 
   return (
     <>
       <Helmet>

@@ -26,6 +26,7 @@ function NavBar() {
          <Navbar.Toggle aria-controls="basic-navbar-nav" />
          <Navbar.Collapse id="basic-navbar-nav">
            <Nav className="me-auto">
+           <Nav.Link href="/admin/welcome">Inicio</Nav.Link>
              <Nav.Link href="/admin/registrar">Registrar Empleado</Nav.Link>
              <Nav.Link href="/admin/listar">Ver Empleados</Nav.Link>
            </Nav>
@@ -42,9 +43,11 @@ function NavBar() {
          <Navbar.Brand href="/empleado/inicio">Sistema de Vacunacion</Navbar.Brand>
          <Navbar.Toggle aria-controls="basic-navbar-nav" />
          <Navbar.Collapse id="basic-navbar-nav">
+         <Nav >
+             <Nav.Link href="/empleado/inicio">Inicio</Nav.Link>
+           </Nav>
            <Nav className="me-auto">
              <Nav.Link href="/empleado/perfil">Ver Perfil</Nav.Link>
-          
            </Nav>
            <Nav>
              <button className="nav-item nav-link btn" onClick={onLogout}>

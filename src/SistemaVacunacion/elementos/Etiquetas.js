@@ -42,10 +42,7 @@ display: flex;
   label{
     padding: 0.5em;
   }
-  // input{
-  //editar con proprs  width:100%;
-  //border:2px solid red;
-  // }
+  
  
 `;
 

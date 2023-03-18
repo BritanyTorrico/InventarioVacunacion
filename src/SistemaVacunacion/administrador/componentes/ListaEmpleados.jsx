@@ -38,6 +38,7 @@ export const ListaEmpleados = () => {
             <th>Apellido</th>
             <th>Correo</th>
             <th>Username</th>
+            <th>Contraseña</th>
             <th>Estado Vacunación</th>
             <th>Tipo de Vacuna </th>
             <th>Fecha de Vacunación </th>
@@ -51,6 +52,7 @@ export const ListaEmpleados = () => {
               <td>{emp.apellido}</td>
               <td>{emp.correo}</td>
               <td>{emp.username}</td>
+              <td>{emp.password}</td>
               <td>{emp.estadoVacunacion}</td>
               <td>{emp.tipoVacuna}</td>
               <td>{emp.fechaVacunacion}</td>

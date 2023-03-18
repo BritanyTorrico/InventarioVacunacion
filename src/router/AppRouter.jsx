@@ -9,12 +9,10 @@ import { SistemaVacunacionRoutes } from '../SistemaVacunacion/routes/SistemaVacu
 export const AppRouter = () => {
   return (
     <>
-        
      <Routes>
      <Route path="/welcome" element={<WelcomePage />} />
      <Route path="/" element={<InicioSesion />} />
      <Route path="/admin/*" element={<SistemaVacunacionRoutes />} />
-     
      <Route path="/empleado/*" element={<SistemaVacunacionRoutes />} />
      </Routes>
     </>

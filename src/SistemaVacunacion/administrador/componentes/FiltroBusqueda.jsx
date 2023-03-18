@@ -1,14 +1,16 @@
 import React, { useContext, useState } from "react";
 import {
-    ContenedorBotonBusqueda,
+  ContenedorBotonBusqueda,
   ContenedorCard,
   ContenedorCardPequenio,
   LabelNormal,
 } from "../../elementos/Etiquetas";
+import styled from "styled-components";
 import { LabelRadio } from "../../elementos/Formularios";
 import { Form, Button } from "react-bootstrap";
 import AdministradorContext from "../context/AdministradorContex";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const FiltroBusqueda = () => {
   const [tipoFiltro, setTipoFiltro] = useState("empleado");
   const [opcion, setOpcion] = useState("");
@@ -32,19 +34,49 @@ export const FiltroBusqueda = () => {
   const onOptionChange3 = (e) => {
     setOpcion3(e.target.value);
   };
+  const verificarFechas = () => {
+    let fechasValidas = true;
+    if (opcion2 > opcion3) {
+      fechasValidas = false;
+      toast.error(
+        "La fecha de inicio no puede ser posterior a la fecha de fin",
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        }
+      );
+    }
+    return fechasValidas;
+  };
   const handleBuscar = () => {
-    console.log("busco");
     if (tipoFiltro === "fechaVacunacion") {
-      if (opcion2 != "" && opcion3 != "") {
-        getEmpleadoByRange(tipoFiltro, opcion2, opcion3);
+      if (opcion2 !== "" && opcion3 !== "") {
+        if (verificarFechas()) {
+          getEmpleadoByRange(tipoFiltro, opcion2, opcion3);
+        }
       } else {
-        console.log("ingrese un parametro de busqueda valido");
+        toast.error("ingrese un parametro de busqueda valido", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       }
     } else {
       if (tipoFiltro === "empleado") {
         getEmpleados();
       } else {
-        if (tipoFiltro != "" && opcion != "") {
+        if (tipoFiltro !== "" && opcion !== "") {
           getEmpleadoByParametro(tipoFiltro, opcion);
         }
       }
@@ -94,25 +126,14 @@ export const FiltroBusqueda = () => {
         <LabelNormal htmlFor="empleado">Todos</LabelNormal>
         {tipoFiltro === "fechaVacunacion" && (
           <>
-            <ContenedorCardPequenio>
+            <ContenedorDate>
               <ContenedorCard>
-                <div>
-                  <label>Fecha de vacunación:</label>
-                </div>
-                <div>
-                  <input
-                    type="date"
-                    onChange={onOptionChange2}
-                    value={opcion2}
-                  />
-                  <input
-                    type="date"
-                    onChange={onOptionChange3}
-                    value={opcion3}
-                  />
-                </div>
+                <label>Fecha de Inicio vacunación:</label>
+                <input type="date" onChange={onOptionChange2} value={opcion2} />
+                <label>Fecha de Fin vacunación:</label>
+                <input type="date" onChange={onOptionChange3} value={opcion3} />
               </ContenedorCard>
-            </ContenedorCardPequenio>
+            </ContenedorDate>
           </>
         )}
 
@@ -162,19 +183,21 @@ export const FiltroBusqueda = () => {
             </ContenedorCardPequenio>
           </>
         )}
-
-  
       </div>
-<ContenedorBotonBusqueda>
-<Button variant="primary" onClick={handleBuscar}>
+      <ContenedorBotonBusqueda>
+        <Button variant="primary" onClick={handleBuscar}>
           Buscar
         </Button>
-</ContenedorBotonBusqueda>
-    
+      </ContenedorBotonBusqueda>
 
-    
-    
-    
+      <ToastContainer />
     </>
   );
 };
+
+const ContenedorDate = styled.div`
+  margin-bottom: 40px;
+  input {
+    margin: 7px;
+  }
+`;

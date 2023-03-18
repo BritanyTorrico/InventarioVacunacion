@@ -11,8 +11,6 @@ import {
   IconoValidacion,
 } from "./../elementos/Formularios";
 
-
-
 export const InputValidate = ({
   estado,
   cambiarEstado,

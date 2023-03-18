@@ -13,12 +13,11 @@ import {
 import AdministradorContext from "../context/AdministradorContex";
 
 
-
 export const FormularioEmpleado = () => {
 
-  const { editando, setEditando, empleado, updateEmpleado,createEmpleado } =
+  const { editando, setEditando, empleado, updateEmpleado, createEmpleado } =
     useContext(AdministradorContext);
-  
+
   useEffect(() => {
     if (editando) {
       setNombre({ campo: empleado.nombre, valido: "true" });
@@ -51,12 +50,12 @@ export const FormularioEmpleado = () => {
       correo.valido === "true"
     ) {
       if (editando) {
-        if(empleado.estadoEmpleado !== estadoEmpleado){
-          if(estadoEmpleado === "activo"){
-            const usurnameGenerated=generarUsername();
-            const passwordGenerated=generarPassword();
+        if (empleado.estadoEmpleado !== estadoEmpleado) {
+          if (estadoEmpleado === "activo") {
+            //genero una cuenta al dar de alta
+            const usurnameGenerated = generarUsername();
+            const passwordGenerated = generarPassword();
             const empleadoDTO = {
-             
               nombre: nombre.campo,
               apellido: apellido.campo,
               celula: celula.campo,
@@ -64,12 +63,11 @@ export const FormularioEmpleado = () => {
               role: "empleado",
               username: usurnameGenerated,
               password: passwordGenerated,
-              estadoEmpleado: estadoEmpleado
+              estadoEmpleado: estadoEmpleado,
             };
             updateEmpleado(empleadoDTO);
-          }else{
+          } else {
             const empleadoDTO = {
-             
               nombre: nombre.campo,
               apellido: apellido.campo,
               celula: celula.campo,
@@ -80,10 +78,8 @@ export const FormularioEmpleado = () => {
               estadoEmpleado: estadoEmpleado,
             };
             updateEmpleado(empleadoDTO);
-
-            
           }
-        }else{
+        } else {
           const empleadoDTO = {
             nombre: nombre.campo,
             apellido: apellido.campo,
@@ -92,15 +88,14 @@ export const FormularioEmpleado = () => {
             estadoEmpleado: estadoEmpleado,
             username: empleado.username,
             password: empleado.password,
-            role: "empleado"
-           
+            role: "empleado",
           };
           updateEmpleado(empleadoDTO);
         }
-        
+
         resetForm();
         setEditando(false);
-        toast.success("Se actualizo correctamente", {
+         toast.success("Se actualizo correctamente", {
           position: "top-right",
           autoClose: 4000,
           hideProgressBar: false,
@@ -110,7 +105,7 @@ export const FormularioEmpleado = () => {
           progress: undefined,
           theme: "colored",
         });
-        
+       
       } else {
         registrarEmpleado();
         resetForm();
@@ -138,7 +133,7 @@ export const FormularioEmpleado = () => {
       });
     }
   };
-  const resetForm = () =>{
+  const resetForm = () => {
     setNombre({ campo: "", valido: null });
     setApellido({ campo: "", valido: null });
     setCelula({ campo: "", valido: null });
@@ -158,9 +153,15 @@ export const FormularioEmpleado = () => {
           username: generarUsername(),
           password: generarPassword(),
           estadoEmpleado: estadoEmpleado,
+          direccion: "",
+          telefono: "",
+          fechaNacimiento: "",
+          estadoVacunacion: "",
+          fechaVacunacion: "",
+          tipoVacuna: "",
+          numeroDosis: "",
         };
         createEmpleado(empleadoDTO);
-       
       } else {
         const empleadoDTO = {
           id: uuidv4().slice(0, 7),
@@ -170,6 +171,13 @@ export const FormularioEmpleado = () => {
           correo: correo.campo,
           role: "empleado",
           estadoEmpleado: estadoEmpleado,
+          direccion: "",
+          telefono: "",
+          fechaNacimiento: "",
+          estadoVacunacion: "",
+          fechaVacunacion: "",
+          tipoVacuna: "",
+          numeroDosis: "",
         };
         createEmpleado(empleadoDTO);
       }

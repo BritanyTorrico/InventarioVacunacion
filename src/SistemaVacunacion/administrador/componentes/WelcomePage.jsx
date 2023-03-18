@@ -1,17 +1,20 @@
-import React from 'react'
-
-import { Titulo } from '../../elementos/Formularios';
-
-
-
+import React from "react";
+import styled from "styled-components";
 export const WelcomePage = () => {
-
-
- const nombre= localStorage.getItem("NOMBRE");
+  const nombre = localStorage.getItem("NOMBRE");
+  const role = localStorage.getItem("ROLE");
   return (
     <>
-    <Titulo>Bienvenido/a... {nombre}</Titulo>
+      <ContenedorInicio>
+        <TituloBienvenido>Bienvenido {nombre}</TituloBienvenido>
+        <TituloBienvenido>Rol: {role}</TituloBienvenido>
+      </ContenedorInicio>
     </>
-  )
-}
-
+  );
+};
+const TituloBienvenido = styled.h3`
+  color: #4169e1;
+`;
+const ContenedorInicio = styled.div`
+  padding: 2% 10%;
+`;

@@ -8,11 +8,9 @@ export const AlertaModal = ({ handleDeleteMoneda, title, mensaje, valor }) => {
 
   return (
     <>
-       <Button variant="danger" onClick={handleShow}>
-                  {valor}
-                </Button>
-     
-
+      <Button variant="danger" onClick={handleShow}>
+        {valor}
+      </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>

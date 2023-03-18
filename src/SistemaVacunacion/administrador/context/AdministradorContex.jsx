@@ -10,18 +10,14 @@ export function AdministradorContextProvider(props) {
   const [data, setData] = useState([]);
   const updateEmpleado = async (emp) => {
     try {
-      await axios.patch(`/empleado/${empleado.id}`, emp).then((resp) => {
-        console.log(resp);
-      });
+      await axios.patch(`/empleado/${empleado.id}`, emp);
     } catch (error) {
       console.log(error);
     }
   };
     const createEmpleado = async (emp) => {
     try {
-        await axios.post("/empleado", emp).then((resp) => {
-            console.log(resp);
-          });
+        await axios.post("/empleado", emp);
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +26,6 @@ export function AdministradorContextProvider(props) {
    
     try {
         await axios.delete(`/empleado/${id}`).then((resp) => {
-            console.log(resp);
             getEmpleados();
           });
     } catch (error) {
@@ -55,10 +50,6 @@ export function AdministradorContextProvider(props) {
     return data;
   };
     const getEmpleadoByRange = async (parametro,opcion,opcion2) => {
-    console.log(parametro);
-    console.log(opcion);
-    console.log(opcion2);
-    console.log(`/empleado?${parametro}_gte=${opcion}&${parametro}_lte=${opcion2}`);
     try {
       await axios.get(`/empleado?${parametro}_gte=${opcion}&${parametro}_lte=${opcion2}`).then((resp) => 
       setData(resp.data));
