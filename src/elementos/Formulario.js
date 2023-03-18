@@ -37,6 +37,12 @@ const Input = styled.input`
     font-size: 20px;
   }
 `;
+const InputNormal = styled.input`
+  border: 1px solid #D3D3D3;
+  width: 100%;
+  outline: none;
+  text-align: center;
+`;
 
 
 const ContenedorBoton = styled.div`
@@ -60,4 +66,5 @@ export {
   ContenedorBoton,
   Boton,
   ContenedorFormulario,
+  InputNormal
 };

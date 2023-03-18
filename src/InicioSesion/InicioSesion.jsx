@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import axios from "../api/axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,13 +13,17 @@ import { ContenedorHeader, Titulo, Header } from "../elementos/Header";
 import { ReactComponent as SvgLogin } from "../imagenes/user.svg";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import useStore from "../store";
 
 const Svg = styled(SvgLogin)`
   width: 100%;
   max-height: 100px;
   margin-bottom: 10px;
 `;
+
 export const InicioSesion = () => {
+  const registerUsuario = useStore(state => state.registerUsuario);
+
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -38,17 +42,30 @@ export const InicioSesion = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let estadoCuenta = false;
     usuarios.forEach((usuario) => {
-     
+    
       if (usuario.username === username && usuario.password === password) {
+        estadoCuenta=true;
          localStorage.setItem("NOMBRE", usuario.nombre);
+         localStorage.setItem("ROLE", usuario.role);
+        
+         registerUsuario(usuario);
+        
+        
         if (usuario.role === "admin") {
           navigate("/admin/welcome");
         } else {
-          navigate("/welcome");
+          navigate("/empleado/inicio");
         }
       }
     });
+    mensajeCuentaInvalida(estadoCuenta);
+
+ 
+  };
+const mensajeCuentaInvalida = (estadoCuenta) =>{
+  if(!estadoCuenta){
     toast.error("Ingrese una cuenta valida", {
       position: "top-right",
       autoClose: 2000,
@@ -59,15 +76,15 @@ export const InicioSesion = () => {
       progress: undefined,
       theme: "colored",
     });
-  };
-
+  }
+};
   const getUsuarios = async () => {
     try {
       await axios.get("/empleado").then((response) => {
         setUsuarios(response.data);
       });
     } catch (error) {
-      toast.error("Base de datos vacia", {
+      toast.error("No se puede acceder a la Base de datos", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,

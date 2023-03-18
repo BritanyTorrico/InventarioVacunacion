@@ -8,26 +8,35 @@
       "nombre": "Britany"
     },
     {
-      "id": "617d6b7",
-      "nombre": "Marcelo Juan",
-      "apellido": "Gallardo Perez",
-      "celula": "2312345678",
+      "id": "11c12cd",
+      "nombre": "Simon",
+      "apellido": "Gallardo",
+      "celula": "1234567892",
+      "correo": "simon@gmail.com",
+      "role": "empleado",
+      "estadoEmpleado": "inactivo"
+    },
+    {
+      "id": "ca0384c",
+      "nombre": "Marcelo",
+      "apellido": "Perez",
+      "celula": "4343434333",
       "correo": "marce@gmail.com",
       "role": "empleado",
-      "username": "Marcelo1b8",
-      "password": "cwrBijILlh",
+      "username": "Marceloe2b",
+      "password": "QzMm5hbp9m",
       "estadoEmpleado": "activo"
     },
     {
-      "nombre": "Garnizo",
-      "apellido": "Gallardo",
-      "celula": "4343434333",
-      "correo": "Garnizo@gmail.com",
-      "estadoEmpleado": "activo",
-      "username": "Juan37b",
-      "password": "w4tL236mtK",
+      "id": "1732749",
+      "nombre": "Maria",
+      "apellido": "Inofuentes",
+      "celula": "2312345678",
+      "correo": "maria@gmail.com",
       "role": "empleado",
-      "id": "0863f69"
+      "username": "Maria36a",
+      "password": "dt2ELtzdoW",
+      "estadoEmpleado": "activo"
     }
   ],
   "usuario": [

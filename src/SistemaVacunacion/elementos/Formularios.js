@@ -132,7 +132,9 @@ const LabelRadio = styled.label`
  font-weight: 700;
  padding:20px;
 
+
 `;
+
 export {
   Label,
   ContenedorInput,

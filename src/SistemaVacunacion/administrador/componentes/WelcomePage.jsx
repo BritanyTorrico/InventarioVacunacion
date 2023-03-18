@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { Titulo } from '../../elementos/Formularios';
+
 
 
 export const WelcomePage = () => {

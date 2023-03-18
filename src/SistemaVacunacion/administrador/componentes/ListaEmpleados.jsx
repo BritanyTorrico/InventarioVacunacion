@@ -1,9 +1,11 @@
 import React, { useEffect, useContext } from "react";
-import { Titulo } from "../../elementos/Formularios";
+import {  Titulo } from "../../elementos/Formularios";
 import { Table, Button } from "react-bootstrap";
 import AdministradorContext from "../context/AdministradorContex";
 import { useNavigate } from "react-router-dom";
 import { AlertaModal } from "./AlertaModal";
+import { FiltroBusqueda } from "./FiltroBusqueda";
+
 
 export const ListaEmpleados = () => {
   const navigate = useNavigate();
@@ -20,9 +22,14 @@ export const ListaEmpleados = () => {
     setEmpleado(emp);
     navigate("/admin/registrar");
   };
+
   return (
     <>
       <Titulo>LISTA DE EMPLEADOS:</Titulo>
+     <FiltroBusqueda />
+    
+     {data.length === 0 ? <h3>No existe ninguna concidencia </h3> : 
+     <>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -31,6 +38,9 @@ export const ListaEmpleados = () => {
             <th>Apellido</th>
             <th>Correo</th>
             <th>Username</th>
+            <th>Estado Vacunación</th>
+            <th>Tipo de Vacuna </th>
+            <th>Fecha de Vacunación </th>
           </tr>
         </thead>
         <tbody>
@@ -41,6 +51,9 @@ export const ListaEmpleados = () => {
               <td>{emp.apellido}</td>
               <td>{emp.correo}</td>
               <td>{emp.username}</td>
+              <td>{emp.estadoVacunacion}</td>
+              <td>{emp.tipoVacuna}</td>
+              <td>{emp.fechaVacunacion}</td>
               <td>
                 <Button variant="success" onClick={() => handleUpdate(emp)}>
                   Editar
@@ -59,6 +72,8 @@ export const ListaEmpleados = () => {
           ))}
         </tbody>
       </Table>
+     </>}
+     
     </>
   );
 };

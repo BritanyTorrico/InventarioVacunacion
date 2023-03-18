@@ -53,24 +53,23 @@ export const FormularioEmpleado = () => {
       if (editando) {
         if(empleado.estadoEmpleado !== estadoEmpleado){
           if(estadoEmpleado === "activo"){
-            console.log("generoo");
-            const us=generarUsername();
-            const pas=generarPassword();
+            const usurnameGenerated=generarUsername();
+            const passwordGenerated=generarPassword();
             const empleadoDTO = {
-              id: uuidv4().slice(0, 7),
+             
               nombre: nombre.campo,
               apellido: apellido.campo,
               celula: celula.campo,
               correo: correo.campo,
               role: "empleado",
-              username: us,
-              password: pas,
+              username: usurnameGenerated,
+              password: passwordGenerated,
               estadoEmpleado: estadoEmpleado
             };
             updateEmpleado(empleadoDTO);
           }else{
             const empleadoDTO = {
-              id: uuidv4().slice(0, 7),
+             
               nombre: nombre.campo,
               apellido: apellido.campo,
               celula: celula.campo,

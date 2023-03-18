@@ -9,9 +9,8 @@ export function AdministradorContextProvider(props) {
   const [empleado, setEmpleado] = useState({});
   const [data, setData] = useState([]);
   const updateEmpleado = async (emp) => {
-    console.log(emp);
     try {
-      await axios.put(`/empleado/${empleado.id}`, emp).then((resp) => {
+      await axios.patch(`/empleado/${empleado.id}`, emp).then((resp) => {
         console.log(resp);
       });
     } catch (error) {
@@ -46,7 +45,29 @@ export function AdministradorContextProvider(props) {
     }
     return data;
   };
-
+  const getEmpleadoByParametro = async (parametro,valor) => {
+    try {
+      await axios.get(`/empleado?${parametro}=${valor}`).then((resp) => 
+      setData(resp.data));
+    } catch (error) {
+      console.log("no se pudo obtener los empleados");
+    }
+    return data;
+  };
+    const getEmpleadoByRange = async (parametro,opcion,opcion2) => {
+    console.log(parametro);
+    console.log(opcion);
+    console.log(opcion2);
+    console.log(`/empleado?${parametro}_gte=${opcion}&${parametro}_lte=${opcion2}`);
+    try {
+      await axios.get(`/empleado?${parametro}_gte=${opcion}&${parametro}_lte=${opcion2}`).then((resp) => 
+      setData(resp.data));
+    } catch (error) {
+      console.log("no se pudo obtener los empleados");
+    }
+  
+  };
+  
   return (
     <AdministradorContext.Provider
       value={{
@@ -56,7 +77,10 @@ export function AdministradorContextProvider(props) {
         empleado,
         setEmpleado,
         createEmpleado,
-        deleteEmpleado,getEmpleados,data
+        deleteEmpleado,getEmpleados,
+        data,
+        getEmpleadoByParametro,
+        getEmpleadoByRange
       }}
     >
       {props.children}
