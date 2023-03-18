@@ -24,13 +24,25 @@ Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
 ### PASO 1: Levantar nuestra FAKE_API con el comando
 
-json-server -w -p 5000 db.json
+####json-server -w -p 5000 db.json
 
 
 **Nota: Es importante que lo levantemos en el puerto 5000 ya que nuestra aplicación hace referencia a ese URL para mas informacion revisar la carpeta "api" archivo "axios" **
 
-http://localhost:5000/empleado
+http://localhost:5000/empleado .\
+
 http://localhost:5000/administrador
 
+
+### USUARIO ADMINISTRADOR
+
+## username: admin  .\
+## password: admin
+
+
+### USUARIO EMPLEADO
+**1. Para poder acceder a las cuentas de los empleados una vez ingresado al sistema con la cuenta de administrador , se esta mostrando en la tabla de vista de empleados los username y password correspondientes de los empleados**./
+
+**2. Tambien puede crear un empleado y ver su username y password asignado en la tabla de vista empleados**
 
 
