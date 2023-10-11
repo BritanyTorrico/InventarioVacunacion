@@ -22,8 +22,12 @@ Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
 ### PERSISTENCIA DE DATOS CON JSON-SERVER 
 
-### PASO 1: Levantar nuestra FAKE_API con el comando
+En otra terminal en la misma ruta del archivo ejecutar
 
+### PASO 1: Levantar nuestra FAKE_API con el comando
+### instalar JSON SERVER 
+npm install -g json-server
+### PASO 2: Levantar nuestra FAKE_API con el comando
 #### json-server -w -p 5000 db.json
 
 
