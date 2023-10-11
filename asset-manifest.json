@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/InventarioVacunacion/static/css/main.2a11922b.css",
+    "main.js": "/InventarioVacunacion/static/js/main.9111e52c.js",
+    "static/media/user.svg": "/InventarioVacunacion/static/media/user.7db35d555b7d58bb9e06d8b6154e7a7b.svg",
+    "index.html": "/InventarioVacunacion/index.html",
+    "main.2a11922b.css.map": "/InventarioVacunacion/static/css/main.2a11922b.css.map",
+    "main.9111e52c.js.map": "/InventarioVacunacion/static/js/main.9111e52c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a11922b.css",
+    "static/js/main.9111e52c.js"
+  ]
+}
