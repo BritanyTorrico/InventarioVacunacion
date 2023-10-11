@@ -8,6 +8,8 @@ import {
   ContenedorBoton,
   Boton,
   ContenedorFormulario,
+  SubtituloAuxiliar,
+  TextoAuxiliar
 } from "../elementos/Formulario";
 import { ContenedorHeader, Titulo, Header } from "../elementos/Header";
 import { ReactComponent as SvgLogin } from "../imagenes/user.svg";
@@ -129,6 +131,7 @@ const mensajeCuentaInvalida = (estadoCuenta) =>{
           <Titulo>Iniciar Sesion</Titulo>
         </Header>
       </ContenedorHeader>
+
       <ContenedorFormulario>
         <Formulario onSubmit={handleSubmit}>
           <Svg />
@@ -149,6 +152,12 @@ const mensajeCuentaInvalida = (estadoCuenta) =>{
           <ContenedorBoton>
             <Boton type="submit">Iniciar Sesion</Boton>
           </ContenedorBoton>
+          <SubtituloAuxiliar>Usuario administrador</SubtituloAuxiliar>
+          <TextoAuxiliar>Username: admin</TextoAuxiliar>
+          <TextoAuxiliar>Password : admin</TextoAuxiliar>
+          <SubtituloAuxiliar>Usuario Empleado</SubtituloAuxiliar>
+          <TextoAuxiliar>Username: Maria2a1</TextoAuxiliar>
+          <TextoAuxiliar>Password : 0Qtwfj9Pod</TextoAuxiliar>
         </Formulario>
       </ContenedorFormulario>
       <ToastContainer />

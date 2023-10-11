@@ -60,11 +60,21 @@ const Boton = styled.button`
   cursor: pointer;
   font-size: 22px;
 `;
+const SubtituloAuxiliar = styled.h4`
+  font-size: 16px;
+  margin: 10px 0 0 0;
+`;
+const TextoAuxiliar = styled.p`
+  font-size: 12px;
+  margin: 0;
+`;
 export {
   Formulario,
   Input,
   ContenedorBoton,
   Boton,
   ContenedorFormulario,
-  InputNormal
+  InputNormal,
+  SubtituloAuxiliar,
+  TextoAuxiliar
 };
