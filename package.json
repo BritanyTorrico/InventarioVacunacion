@@ -2,7 +2,6 @@
   "name": "inventario-vacunacion",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://britanytorrico.github.io/InventarioVacunacion",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
@@ -14,7 +13,6 @@
     "bootstrap": "^5.2.3",
     "date-fns": "^2.29.3",
     "generate-password": "^1.7.0",
-    "gh-pages": "^6.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
@@ -29,8 +27,6 @@
     "zustand": "^4.3.6"
   },
   "scripts": {
-    "predeploy":"npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
