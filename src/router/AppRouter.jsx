@@ -11,7 +11,7 @@ export const AppRouter = () => {
     <>
      <Routes>
      <Route path="/welcome" element={<WelcomePage />} />
-     <Route path="/" element={<InicioSesion />} />
+     <Route path="/InventarioVacunacion" element={<InicioSesion />} />
      <Route path="/admin/*" element={<SistemaVacunacionRoutes />} />
      <Route path="/empleado/*" element={<SistemaVacunacionRoutes />} />
      </Routes>
