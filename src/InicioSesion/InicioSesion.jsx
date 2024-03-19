@@ -83,44 +83,43 @@ const mensajeCuentaInvalida = (estadoCuenta) =>{
     });
   }
 };
-  const getUsuarios = async () => {
-    try {
-      await axios.get("/empleado").then((response) => {
-        setUsuarios(response.data);
-      });
-    } catch (error) {
-      toast.error("No se puede acceder a la Base de datos", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    }
-  };
-  const getAdministrador = async () => {
+const getUsuarios = async () => {
+  try {
+    const response = await axios.get("/db.json");
+    setUsuarios(response.data.empleado);
+  } catch (error) {
+    toast.error("No se puede acceder a la Base de datos", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  }
+};
 
-    try {
-      await axios.get("/administrador").then((response) => {
-        setAdministrador(response.data);
-      });
-    } catch (error) {
-      toast.error("No existe un administrador en la BD", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    }
-  };
- 
+const getAdministrador = async () => {
+  try {
+    const response = await axios.get("/db.json");
+    const administradores = response.data.administrador;
+    setAdministrador(administradores);
+  } catch (error) {
+    toast.error("No existe un administrador en la BD", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  }
+};
+
   return (
     <>
       <Helmet>
